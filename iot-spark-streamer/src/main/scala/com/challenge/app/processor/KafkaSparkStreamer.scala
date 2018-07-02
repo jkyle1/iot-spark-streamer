@@ -89,13 +89,11 @@ object KafkaSparkStreamer {
 
     val iotParsed = iotStream.map(record => (record.value)).map(IoTDeviceMessage.parseIoT)
 
-    iotParsed.foreachRDD{ rdd => rdd.map(IoTDeviceMessage.convertToPut).saveAsNewAPIHadoopDataset(jobConfig) }
+    //iotParsed.foreachRDD{ rdd => rdd.map(IoTDeviceMessage.convertToPut).saveAsNewAPIHadoopDataset(jobConfig) }
     //TODO work in progress
 
       // convert iot message to put object and write to HBase table iot-stream
-    //iotStream.foreachRDD { rdd =>
-    // rdd.map(IoTDeviceMessage.parseIoT()).saveAsNewAPIHadoopDataset(jobConfig)
-    //}
+   
 
 
 
